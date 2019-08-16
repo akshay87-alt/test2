@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="jquery-3.4.1.js">
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				getLocation();
+			});
+			var x=document.getElementById('demo');
+			function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+		});
+
+
+	</script>
+
+</head>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button id="btn1" >Try It</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
